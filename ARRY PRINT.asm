@@ -21,9 +21,10 @@ org 100h
     XOR BL, BL        ; BL = 0 (TO STORE SUM)
     
     LEVEL1:  
-    MOV DL,AR[SI]  
+    MOV DL,AR[SI]
+    ADD BL,DL  
     ADD DL,48
-    ADD BL,DL 
+     
     MOV AH,2 
     INT 21H
     INC SI
@@ -38,7 +39,7 @@ org 100h
      
      
     MOV AH,2
-    SUB BL,48
+    ADD BL,48
     MOV DL,BL
     INT 21H
     
