@@ -7,68 +7,86 @@ org 100h
 ; add your code here
 .data
 count dw ?
-arr dw 100 dup(?)
-
+arr dw 100 {?)
 
 .code
-
-start:
-print "Enter how many number : "
+print "Enter the how many number : "
 call scan_num
 printn
 
 mov count,cx
-mov dx,0
 
+mov si,0 
 mov bx,cx
-mov si,0
-print "Enter the number "  
+
+print "Enter number : "
 
 input:
 call scan_num
 printn
-mov arr[si],cx 
-add dx,cx
+mov arr[si],cx
 add si,2
 dec bx
 cmp bx,0
-jne input:
+jne input
 
 
+print "out put  :" 
+printn
 
-print "output :"
 mov si,0
 mov bx,count
-
-output: 
-printn
+output:
 mov ax,arr[si]
-call print_num_uns  
+call print_num_uns 
 printn
 add si,2
 dec bx
+
 cmp bx,0
 jne output
 
+
+
+
+
+mov si,0
+mov bx,count
+mov ax,arr[si] 
+mov dx,ax 
+add si,2
+dec bx
+
+
+find_max:
+mov ax,arr[si]
+cmp ax,dx
+jge next
+mov dx,ax
+
+
+
+
+next:
+add si,2
+dec bx
+
+cmp bx,0
+jne find_max
+
 printn
 
-print "sumation is :" 
+print "Min number : "
 mov ax,dx
 call print_num_uns
 
-exit:
-mov ah,4ch                             
-
-
-
-
-
+ret
 define_scan_num
 define_print_num
 define_print_num_uns
 define_get_string
 define_print_string
-end
+
 
 
 
