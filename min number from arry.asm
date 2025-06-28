@@ -21,14 +21,14 @@ mov bx,cx
 
 print "Enter number : "
 
-input:
-call scan_num
-printn
-mov arr[si],cx
-add si,2
-dec bx
-cmp bx,0
-jne input
+    input:
+    call scan_num
+    printn
+    mov arr[si],cx
+    add si,2
+    dec bx
+    cmp bx,0
+    jne input
 
 
 print "out put  :" 
@@ -36,15 +36,15 @@ printn
 
 mov si,0
 mov bx,count
-output:
-mov ax,arr[si]
-call print_num_uns 
-printn
-add si,2
-dec bx
-
-cmp bx,0
-jne output
+    output:
+    mov ax,arr[si]
+    call print_num_uns 
+    printn
+    add si,2
+    dec bx
+    
+    cmp bx,0
+    jne output
 
 
 
@@ -58,21 +58,21 @@ add si,2
 dec bx
 
 
-find_max:
-mov ax,arr[si]
-cmp ax,dx
-jge next
-mov dx,ax
+        find_max:
+        mov ax,arr[si]
+        cmp ax,dx
+        jge next
+        mov dx,ax
 
 
 
 
-next:
-add si,2
-dec bx
-
-cmp bx,0
-jne find_max
+    next:
+    add si,2
+    dec bx
+    
+    cmp bx,0
+    jne find_max
 
 printn
 
